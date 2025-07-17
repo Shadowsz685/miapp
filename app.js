@@ -14,11 +14,14 @@ formulario.addEventListener("submit", (e)=>{
 });
 
 function editar(e) {
-    const publicacion = e.parentElement;
-    const descripcion = publicacion.querySelector("p:nth-child(2)");
-    const nuevoTexto = prompt("Editar descripción:", descripcion.textContent);
-    if (nuevoTexto !== null) {
-        descripcion.textContent = nuevoTexto;
+    const parrafo = e.parentElement.querySelector("p:nth-child(2)");
+    parrafo.contentEditable = true;
+    e.value = "Guardar";
+    if(parrafo.contentEditable){
+        parrafo.contentEditable = false;
+    }
+    if (e.value == "Guardar"){
+        e.value = "Editar";
     }
 }
 
